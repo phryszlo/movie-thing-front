@@ -3,18 +3,23 @@ import { useEffect } from 'react'
 
 function WatchList({ watchlist }) {
 
-  useEffect(() => {
-    console.log(`watchlist: |${watchlist}|`)
-  }, [])
+  // useEffect(() => {
+  //   console.log(`watchlist: |${watchlist}|`)
+  // }, [])
 
   // watchlist contains an array of movie objects
   const renderWatchlist = () => {
+    watchlist.forEach(element => {
+      console.log(`watchlist iteration: ${JSON.stringify(element).length}`)
+    });
     return (
       <div className="watchlist-display">
-        {Object.values(watchlist).map((mov) => {
-          <div className="watchlist-item">
-            {mov && mov.Title}
-          </div>
+        {watchlist.map((m,i) => {
+          // return (<div>{mov.Title}</div>)
+          const t = JSON.stringify(m.movie);
+          console.log(`t = ${t}`)
+          return (<div key={`watch-key-${i}`}>{m.movie.Title}</div>)
+
         })}
       </div>
     )
@@ -22,9 +27,10 @@ function WatchList({ watchlist }) {
 
   return (
     <div className="watch-list">
-      {watchlist && watchlist != '' && !console.log(`wl:${JSON.stringify(watchlist)}`)
+      {watchlist && watchlist != ''
         ? renderWatchlist()
-        : <img className="watchlist-display" src="logo512.png" width="50px" />}
+        : <img className="watchlist-display" src="logo512.png" width="50px" />
+      }
     </div>
   )
 }

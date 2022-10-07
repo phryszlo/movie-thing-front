@@ -38,15 +38,25 @@ body {
   margin: 0 auto;
 }
 
+.formy{
+  z-index: 101;
+}
+
 .watchlist-display {
+  z-index: -1;
   position: absolute;
   top: 0;
   right: 0;
   min-width: 50px;
   height: fit-content;
-  min-height: 50px;
+  min-height: 90vh;
   /* margin: 1em; */
   border: 2px solid fuchsia;
+}
+
+.watchlist-item {
+  border: solid lime;
+  min-width: 50px;
 }
 
 .movie-display {
