@@ -15,7 +15,7 @@ function Form({ moviesearch }) {
   // 🔸🔸🔸
   const handleSubmit = (event) => {
     event.preventDefault();
-    moviesearch(formData.searchterm);
+    moviesearch({searchTerm: formData.searchterm});
   };
 
 
